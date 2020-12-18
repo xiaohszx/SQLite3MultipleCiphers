@@ -32,6 +32,7 @@ script:
     - echo -en 'travis_fold:end:script.build\\r'
     - echo 'Testing...' && echo -en 'travis_fold:start:script.test\\r'
     - ls -l
+    - cat /proc/cpuinfo
     - ./sqlite3shell test1.db3 ".read test/test1.sql"
     - echo -en 'travis_fold:end:script.test\\r'
 
