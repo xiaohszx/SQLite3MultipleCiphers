@@ -1076,6 +1076,7 @@ int RijndaelInit(Rijndael* rijndael, int mode, int dir, UINT8* key, int keyLen, 
 #ifndef TEST_AES_HW
       aesGenKeyEncrypt(key, uKeyLenInBytes*8, (unsigned char*) rijndael->m_expandedKey);
 #else
+      TEST_AES_HW_DEBUG_LOG("aes gen key: hw enabled\n");
       aesGenKeyEncrypt(key, uKeyLenInBytes*8, (unsigned char*) aesKeySched);
 #endif
     }
@@ -1148,6 +1149,7 @@ int RijndaelBlockEncrypt(Rijndael* rijndael, UINT8* input, int inputLen, UINT8* 
 #ifndef TEST_AES_HW        
         aesEncryptCBC(input, outBuffer, rijndael->m_initVector, inputLen/8, (unsigned char*) (rijndael->m_expandedKey), rijndael->m_uRounds);
 #else
+        TEST_AES_HW_DEBUG_LOG("aes enc: hw enabled\n");
         aesEncryptCBC(input, outBuffer2, rijndael->m_initVector, inputLen/8, (unsigned char*) (rijndael->m_expandedKey), rijndael->m_uRounds);
 #endif
       }
@@ -1339,6 +1341,7 @@ int RijndaelBlockDecrypt(Rijndael* rijndael, UINT8* input, int inputLen, UINT8* 
 #ifndef TEST_AES_HW
         aesDecryptCBC(input, outBuffer, rijndael->m_initVector, inputLen/8, (unsigned char*) (rijndael->m_expandedKey), rijndael->m_uRounds);
 #else
+        TEST_AES_HW_DEBUG_LOG("aes dec: hw enabled\n");
         aesDecryptCBC(input, outBuffer2, rijndael->m_initVector, inputLen/8, (unsigned char*) (rijndael->m_expandedKey), rijndael->m_uRounds);
 #endif
       }
