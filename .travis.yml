@@ -28,7 +28,7 @@ script:
     - ./configure
     - echo -en 'travis_fold:end:script.configure\\r'
     - echo 'Building...' && echo -en 'travis_fold:start:script.build\\r'
-    - make
+    - make --trace
     - echo -en 'travis_fold:end:script.build\\r'
     - echo 'Testing...' && echo -en 'travis_fold:start:script.test\\r'
     - #./samples/minimal -t -s ./samples
