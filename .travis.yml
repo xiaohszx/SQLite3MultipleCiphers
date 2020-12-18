@@ -28,11 +28,11 @@ script:
     - ./configure
     - echo -en 'travis_fold:end:script.configure\\r'
     - echo 'Building...' && echo -en 'travis_fold:start:script.build\\r'
-    - make --trace -d
+    - make --trace
     - echo -en 'travis_fold:end:script.build\\r'
     - echo 'Testing...' && echo -en 'travis_fold:start:script.test\\r'
     - ls -l
-    - #./samples/minimal -t -s ./samples
+    - ./sqlite3shell test1.db3 ".read test/test1.sql"
     - echo -en 'travis_fold:end:script.test\\r'
 
 # The "set +e" is a workaround for https://github.com/travis-ci/travis-ci/issues/6522
