@@ -8,7 +8,7 @@ set -e
 case "$TRAVIS_OS_NAME" in
     linux)
         sudo apt-get -qq update
-        sudo apt-get install -y $WXGTK_PACKAGE
+        #sudo apt-get install -y $WXGTK_PACKAGE
     ;;
 
     osx)
