@@ -21,7 +21,6 @@ branches:
         - aes-neon
 
 before_install:
-    - ./admin/travis/before_install.sh
     - autoreconf
 
 script:
